@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelloNetCore.entity;
+using System;
 
 namespace HelloNetCore
 {
@@ -6,7 +7,15 @@ namespace HelloNetCore
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            GradeBook GradeBook = new GradeBook();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                GradeBook.AddGrade((float)i);
+            }
+
+            Console.WriteLine(GradeBook.GetGradeStatistics().ToString());
+
         }
     }
 }
