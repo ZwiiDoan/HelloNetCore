@@ -1,5 +1,6 @@
 using HelloNetCore.entity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace UnitTestHelloNetCore
 {
@@ -49,6 +50,20 @@ namespace UnitTestHelloNetCore
         private void Increment(out int i, int j)
         {
             i = j + 1;
+        }
+
+        [TestMethod]
+        public void TestImmutableType()
+        {
+            DateTime dateTime = new DateTime(2018, 01, 01);
+            DateTime laterDateTime = dateTime.AddDays(1.5);
+            Assert.AreNotEqual(dateTime, laterDateTime);
+            Assert.AreEqual(dateTime, new DateTime(2018, 01, 01));
+
+            string immutableString = "String is a reference type but it is immutable";
+            string newString = immutableString.Replace(" ", "_");
+            Assert.AreNotEqual(newString, immutableString);
+            Assert.AreEqual(immutableString, "String is a reference type but it is immutable");
         }
     }
 }

@@ -36,19 +36,19 @@ namespace HelloNetCore.entity
         {
             GradeStatistics = new GradeStatistics();
 
-            float TotalGrade = 0;
+            float totalGrade = 0;
 
             GradeStatistics.LowestGrade = GradeList[0];
             GradeStatistics.HighestGrade = GradeList[0];
 
-            GradeList.ForEach(Grade =>
+            GradeList.ForEach(grade =>
             {
-                TotalGrade += Grade;
-                GradeStatistics.LowestGrade = Math.Min(GradeStatistics.LowestGrade, Grade);
-                GradeStatistics.HighestGrade = Math.Max(GradeStatistics.HighestGrade, Grade);
+                totalGrade += grade;
+                GradeStatistics.LowestGrade = Math.Min(GradeStatistics.LowestGrade, grade);
+                GradeStatistics.HighestGrade = Math.Max(GradeStatistics.HighestGrade, grade);
             });
 
-            GradeStatistics.AverageGrade = TotalGrade / GradeList.Count;
+            GradeStatistics.AverageGrade = totalGrade / GradeList.Count;
         }
     }
 }
